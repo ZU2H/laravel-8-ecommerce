@@ -25,7 +25,7 @@ class AdminEditProductComponent extends Component
     public $quantity;
     public $image;
     public $category_id;
-    public $newImage;
+    public $new_image;
     public $product_id;
 
     public function mount($product_slug)
@@ -52,9 +52,41 @@ class AdminEditProductComponent extends Component
         $this->slug = Str::slug($this->name, '-');
     }
 
+    public function updated($fields)
+    {
+        $this->validateOnly([
+            'name' => 'required',
+            'slug' => 'required|unique:products',
+            'short_description' => 'required',
+            'description' => 'required',
+            'regular_price' => 'required|numeric',
+            'sale_price' => 'required|numeric',
+            'SKU' => 'required',
+            'stock_status' => 'required',
+            'quantity' => 'required|numeric',
+            'new_image' => 'required|mimes:jpeg,png',
+            'category_id' => 'required'
+        ]);
+    }
+
     public function updateProduct()
     {
+        $this->validate([
+            'name' => 'required',
+            'slug' => 'required|unique:products',
+            'short_description' => 'required',
+            'description' => 'required',
+            'regular_price' => 'required|numeric',
+            'sale_price' => 'required|numeric',
+            'SKU' => 'required',
+            'stock_status' => 'required',
+            'quantity' => 'required|numeric',
+            'new_image' => 'required|mimes:jpeg,png',
+            'category_id' => 'required'
+        ]);
+
         $product = Product::find($this->product_id);
+
         $product->name = $this->name;
         $product->slug = $this->slug;
         $product->short_description = $this->short_description;
@@ -66,10 +98,10 @@ class AdminEditProductComponent extends Component
         $product->featured = $this->featured;
         $product->quantity = $this->quantity;
 
-        if ($this->newImage)
+        if ($this->new_image)
         {
-            $imageName = Carbon::now()->timestamp.'.'.$this->newImage->extension();
-            $this->newImage->storeAs('products', $imageName);
+            $imageName = Carbon::now()->timestamp.'.'.$this->new_image->extension();
+            $this->new_image->storeAs('products', $imageName);
             $product->image = $imageName;
         }
         $product->category_id = $this->category_id;
