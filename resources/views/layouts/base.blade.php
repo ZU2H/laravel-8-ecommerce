@@ -610,6 +610,9 @@
         integrity="sha512-EnXkkBUGl2gBm/EIZEgwWpQNavsnBbeMtjklwAa7jLj60mJk932aqzXFmdPKCG6ge/i8iOCK0Uwl1Qp+S0zowg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <script src="https://cdn.tiny.cloud/1/2uqwql0h5yw46txh84avl6g31qigxq66aj59y6bbfaajji0y/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
+
     @stack('scripts')
     @livewireScripts
 </body>
