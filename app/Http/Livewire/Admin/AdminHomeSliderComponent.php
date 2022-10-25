@@ -13,6 +13,7 @@ class AdminHomeSliderComponent extends Component
         $slider->delete();
         session()->flash('message', 'Slider has been deleted successfully!');
     }
+
     public function render()
     {
         $sliders = HomeSlider::all();
