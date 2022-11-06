@@ -15,10 +15,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="row">
-                            <div class="col-md-6">All Categories</div>
-                            <div class="col-md-6">
-                                <a href="{{ route('admin.addcategory') }}" class="btn btn-success pull-right">Add New</a>
-                            </div>
+                            <div class="col-md-6">All Orders</div>
                         </div>
                     </div>
                     <div class="panel-body">
@@ -40,6 +37,7 @@
                                     <th>Zipcode</th>
                                     <th>Status</th>
                                     <th>Order Date</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -57,6 +55,10 @@
                                         <td>{{ $order->zipcode }}</td>
                                         <td>{{ $order->status }}</td>
                                         <td>{{ $order->created_at }}</td>
+                                        <td>
+                                            <a href="{{ route('admin.orderdetails', ['order_id' => $order->id]) }}"
+                                                class="btn btn-info btn-sm">Details</a>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
