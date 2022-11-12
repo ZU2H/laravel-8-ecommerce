@@ -108,7 +108,9 @@
                                         </a>
                                         <div class="product-wish">
                                             @if ($witems->contains($product->id))
-                                                <a href="#" wire:click.prevent="removeFromWishlist({{$product->id}})"><i class="fa fa-heart fill-heart"></i></a>
+                                                <a href="#"
+                                                    wire:click.prevent="removeFromWishlist({{ $product->id }})"><i
+                                                        class="fa fa-heart fill-heart"></i></a>
                                             @else
                                                 <a href="#"
                                                     wire:click.prevent="addToWishlist({{ $product->id }}, '{{ $product->name }}', {{ $product->regular_price }})"><i
@@ -142,9 +144,21 @@
                     <div class="widget-content">
                         <ul class="list-category">
                             @foreach ($categories as $category)
-                                <li class="category-item">
+                                <li
+                                    class="category-item {{ count($category->subCategories) > 0 ? 'has-child-cate' : '' }}">
                                     <a href="{{ route('product.category', ['category_slug' => $category->slug]) }}"
                                         class="cate-link">{{ $category->name }}</a>
+                                    @if (count($category->subCategories) > 0)
+                                        <span class="toggle-control">*</span>
+                                        <ul class="sub-cate">
+                                            @foreach ($category->subCategories as $scategory)
+                                                <li class="category-item">
+                                                    <a href="#" class="cat-link"><i class="fa fa-caret-right"
+                                                            aria-hidden="true"></i> {{ $scategory->name }}</a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    @endif
                                 </li>
                             @endforeach
                         </ul>
