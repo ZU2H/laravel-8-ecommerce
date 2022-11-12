@@ -48,12 +48,18 @@
                                         <td>
                                             <ul class="sclist">
                                                 @foreach ($category->subCategories as $scategory)
-                                                    <li><i class="fa fa-caret-right"></i> {{$scategory->name}}</li>
+                                                    <li><i class="fa fa-caret-right"></i> {{ $scategory->name }}
+                                                        <a
+                                                            href="{{ route('admin.editcategory', ['category_slug' => $category->slug, 'scategory_slug' => $scategory->slug]) }}">
+                                                            <i class="fa fa-edit" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
                                                 @endforeach
                                             </ul>
                                         </td>
                                         <td>
-                                            <a href="{{ route('admin.editcategory', ['category_slug' => $category->slug]) }}"><i
+                                            <a
+                                                href="{{ route('admin.editcategory', ['category_slug' => $category->slug]) }}"><i
                                                     class="fa fa-edit fa-2x"></i></a>
                                             <a href="#"
                                                 onclick="confirm('Are you sure , You want to delete this category?') || event.stopImmediatePropagation()"
