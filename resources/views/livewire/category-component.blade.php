@@ -6,7 +6,7 @@
             <ul>
                 <li class="item-link"><a href="/" class="link">home</a></li>
                 <li class="item-link"><span>Product Categories</span></li>
-                <li class="item-link"><span>{{$category_name}}</span></li>
+                <li class="item-link"><span>{{ $category_name }}</span></li>
             </ul>
         </div>
         <div class="row">
@@ -21,7 +21,7 @@
 
                 <div class="wrap-shop-control">
 
-                    <h1 class="shop-title">{{$category_name}}</h1>
+                    <h1 class="shop-title">{{ $category_name }}</h1>
 
                     <div class="wrap-right">
 
@@ -63,15 +63,20 @@
                             <li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
                                 <div class="product product-style-3 equal-elem ">
                                     <div class="product-thumnail">
-                                        <a href="{{ route('product.details', ['slug' => $product->slug]) }}" title="{{$product->name}}">
-                                            <figure><img src="{{ asset('assets/images/products/'.$product->image) }}"
-                                                    alt="{{$product->name}}"></figure>
+                                        <a href="{{ route('product.details', ['slug' => $product->slug]) }}"
+                                            title="{{ $product->name }}">
+                                            <figure><img src="{{ asset('assets/images/products/' . $product->image) }}"
+                                                    alt="{{ $product->name }}"></figure>
                                         </a>
                                     </div>
                                     <div class="product-info">
-                                        <a href="{{ route('product.details', ['slug' => $product->slug]) }}" class="product-name"><span>{{$product->name}}</span></a>
-                                        <div class="wrap-price"><span class="product-price">${{$product->regular_price}}</span></div>
-                                        <a href="#" class="btn add-to-cart" wire:click.prevent="store({{$product->id}}, '{{$product->name}}', {{$product->regular_price}})"">Add To Cart</a>
+                                        <a href="{{ route('product.details', ['slug' => $product->slug]) }}"
+                                            class="product-name"><span>{{ $product->name }}</span></a>
+                                        <div class="wrap-price"><span
+                                                class="product-price">${{ $product->regular_price }}</span></div>
+                                        <a href="#" class="btn add-to-cart"
+                                            wire:click.prevent="store({{ $product->id }}, '{{ $product->name }}', {{ $product->regular_price }})"">Add
+                                            To Cart</a>
                                     </div>
                                 </div>
                             </li>
@@ -81,7 +86,7 @@
                 </div>
 
                 <div class="wrap-pagination-info">
-                    {{$products->links()}}
+                    {{ $products->links() }}
                     {{-- <ul class="page-numbers">
                         <li><span class="page-number-item current">1</span></li>
                         <li><a class="page-number-item" href="#">2</a></li>
@@ -108,7 +113,8 @@
                                         <ul class="sub-cate">
                                             @foreach ($category->subCategories as $scategory)
                                                 <li class="category-item">
-                                                    <a href="{{ route('product.category', ['category_slug' => $category->slug, 'scategory_slug' => $scategory->slug]) }}" class="cat-link"><i class="fa fa-caret-right"
+                                                    <a href="{{ route('product.category', ['category_slug' => $category->slug, 'scategory_slug' => $scategory->slug]) }}"
+                                                        class="cat-link"><i class="fa fa-caret-right"
                                                             aria-hidden="true"></i> {{ $scategory->name }}</a>
                                                 </li>
                                             @endforeach
