@@ -254,7 +254,7 @@ class CheckoutComponent extends Component
                 $this->thankyou = 0;
             }
         }
-        $this->sendOrderConfirmationMail();
+        $this->sendOrderConfirmationMail($order);
     }
 
     public function resetCart()

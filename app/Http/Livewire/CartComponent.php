@@ -149,8 +149,21 @@ class CartComponent extends Component
         }
     }
 
+    public function shippingCost()
+    {
+        return (float) str_replace(',', '', Cart::instance('cart')->subtotal());
+    }
+
+    public function totalCost()
+    {
+        return (float) str_replace(',', '', Cart::instance('cart')->total());
+    }
+
     public function render()
     {
+        $shippingCost = $this->shippingCost() * 5 / 100;
+        $totalCost = $this->totalCost() + $shippingCost;
+
         if (session()->has('coupon'))
         {
             if (Cart::instance('cart')->subtotal() < session()->get('coupon')['cart_value'])
@@ -169,6 +182,9 @@ class CartComponent extends Component
             Cart::instance('cart')->store(Auth::user()->email);
         }
 
-        return view('livewire.cart-component')->layout('layouts.base');
+        return view('livewire.cart-component', [
+            'shippingCost' => $shippingCost,
+            'totalCost' => $totalCost
+        ])->layout('layouts.base');
     }
 }

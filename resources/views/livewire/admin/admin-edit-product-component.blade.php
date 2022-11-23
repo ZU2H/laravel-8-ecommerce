@@ -164,7 +164,7 @@
                                     @else
                                         @foreach ($images as $image)
                                             @if ($image)
-                                                <img src="{{ assset('assets/images/products/' . $image) }}"
+                                                <img src="{{ asset('assets/images/products/' . $image) }}"
                                                     width="120">
                                             @endif
                                         @endforeach
@@ -223,12 +223,12 @@
                             @foreach ($inputs as $key => $value)
                                 <div class="form-group">
                                     <label for=""
-                                        class="col-md-4 control-label">{{ $pattributes->where('id', $attribute_arr[$key])->first()->name() }}</label>
+                                        class="col-md-4 control-label">{{ $pattributes->where('id', $attribute_arr[$key])->first()->name }}</label>
                                     <div class="col-md-3">
                                         <input type="text" name="" id=""
-                                            placeholder="{{ $pattributes->where('id', $attribute_arr[$key])->first()->name() }}"
+                                            placeholder="{{ $pattributes->where('id', $attribute_arr[$key])->first()->name }}"
                                             class="form-control input-md"
-                                            wire:model="attribute_value.{{ $value }}" />
+                                            wire:model="attribute_values.{{ $value }}" />
                                     </div>
                                     <div class="col-md-1">
                                         <button type="button" class="btn btn-danger btn-sm"

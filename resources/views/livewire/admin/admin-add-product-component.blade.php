@@ -204,14 +204,14 @@
                                 </div>
                                 <div class="col-md-1">
                                     <button type="button" class="btn btn-info"
-                                        wire:click.prevet="add">Add</button>
+                                        wire:click.prevet="addAttributes">Add</button>
                                 </div>
                             </div>
 
                             @foreach ($inputs as $key => $value)
                                 <div class="form-group">
                                     <label for=""
-                                        class="col-md-4 control-label">{{ $pattributes->where('id', $attribute_arr[$key])->first()->name() }}</label>
+                                        class="col-md-4 control-label">{{ $pattributes->where('id', $attribute_arr[$key])->first()->name }}</label>
                                     <div class="col-md-3">
                                         <input type="text" name="" id="" placeholder="{{ $pattributes->where('id', $attribute_arr[$key])->first()->name() }}"
                                             class="form-control input-md" wire:model="attribute_value.{{$value}}" />

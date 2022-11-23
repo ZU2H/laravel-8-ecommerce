@@ -122,7 +122,8 @@
                                                             href="{{ route('admin.categories') }}">Categories</a>
                                                     </li>
                                                     <li class="menu-item">
-                                                        <a title="Attributes" href="{{ route('admin.attributes') }}">All Attributes</a>
+                                                        <a title="Attributes" href="{{ route('admin.attributes') }}">All
+                                                            Attributes</a>
                                                     </li>
                                                     <li class="menu-item">
                                                         <a title="Products" href="{{ route('admin.products') }}">All
@@ -142,16 +143,20 @@
                                                             Setting</a>
                                                     </li>
                                                     <li class="menu-item">
-                                                        <a title="All Coupons" href="{{ route('admin.coupons') }}">All Coupons</a>
+                                                        <a title="All Coupons" href="{{ route('admin.coupons') }}">All
+                                                            Coupons</a>
                                                     </li>
                                                     <li class="menu-item">
-                                                        <a title="All Orders" href="{{ route('admin.orders') }}">All Orders</a>
+                                                        <a title="All Orders" href="{{ route('admin.orders') }}">All
+                                                            Orders</a>
                                                     </li>
                                                     <li class="menu-item">
-                                                        <a title="Contact Messages" href="{{ route('admin.contact') }}">Contact Messages</a>
+                                                        <a title="Contact Messages"
+                                                            href="{{ route('admin.contact') }}">Contact Messages</a>
                                                     </li>
                                                     <li class="menu-item">
-                                                        <a title="Settings" href="{{ route('admin.settings') }}">Settings</a>
+                                                        <a title="Settings"
+                                                            href="{{ route('admin.settings') }}">Settings</a>
                                                     </li>
                                                     <li class="menu-item">
                                                         <a href="{{ route('logout') }}"
@@ -174,12 +179,12 @@
                                                             href="{{ route('user.dashboard') }}">Dashboard</a>
                                                     </li>
                                                     <li class="menu-item">
-                                                        <a title="My Orders"
-                                                            href="{{ route('user.profile') }}">My Profile</a>
+                                                        <a title="My Orders" href="{{ route('user.profile') }}">My
+                                                            Profile</a>
                                                     </li>
                                                     <li class="menu-item">
-                                                        <a title="My Orders"
-                                                            href="{{ route('user.orders') }}">My Orders</a>
+                                                        <a title="My Orders" href="{{ route('user.orders') }}">My
+                                                            Orders</a>
                                                     </li>
                                                     <li class="menu-item">
                                                         <a title="Change Password"
@@ -214,7 +219,8 @@
 
                         <div class="wrap-logo-top left-section">
                             <a href="index.html" class="link-to-home"><img
-                                    src="{{ asset('assets/images/logo-top-1.png') }}" alt="mercado"></a>
+                                    style="width: 100%; height: 50px; object-fit: cover"
+                                    src="{{ asset('assets/images/hotpot.png') }}" alt="mercado"></a>
                         </div>
 
                         @livewire('header-search-component')

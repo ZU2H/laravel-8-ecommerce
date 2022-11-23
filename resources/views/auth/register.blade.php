@@ -90,6 +90,11 @@
                                         <input type="password" id="frm-reg-cfpass" name="password_confirmation"
                                             placeholder="Confirm Password" required autocomplete="new-password">
                                     </fieldset>
+
+                                    <fieldset class="wrap-input">
+                                        <a class="link-function right-position" href="{{ route('login') }}"
+                                            title="Forgotten password?">Already have account</a>
+                                    </fieldset>
                                     <input type="submit" class="btn btn-sign" value="Register" name="register">
                                 </form>
                             </div>

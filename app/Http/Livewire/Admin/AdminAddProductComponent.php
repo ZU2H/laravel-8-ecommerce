@@ -42,7 +42,7 @@ class AdminAddProductComponent extends Component
         $this->featured = 0;
     }
 
-    public function add()
+    public function addAttributes()
     {
         if (!in_array($this->attr, $this->attribute_arr))
         {

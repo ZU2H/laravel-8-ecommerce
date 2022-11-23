@@ -35,7 +35,7 @@
                                     </div>
                                     @foreach ($item->options as $key => $value)
                                         <div style="vertical-align: middle; width: 100px">
-                                            <p><b>{{$key}}: {{$value}}</b></p>
+                                            <p><b>{{ $key }}: {{ $value }}</b></p>
                                         </div>
                                     @endforeach
                                     <div class="price-field produtc-price">
@@ -103,11 +103,11 @@
                             <p class="summary-info"><span class="title">Tax</span>
                                 <b class="index">${{ Cart::instance('cart')->tax() }}</b>
                             </p>
-                            <p class="summary-info"><span class="title">Shipping</span><b class="index">Free
-                                    Shipping</b>
+                            <p class="summary-info"><span class="title">Shipping</span>
+                                <b class="index">${{ $shippingCost }}</b>
                             </p>
                             <p class="summary-info total-info "><span class="title">Total</span>
-                                <b class="index">${{ Cart::instance('cart')->total() }}</b>
+                                <b class="index">${{ $totalCost }}</b>
                             </p>
                         @endif
                     </div>

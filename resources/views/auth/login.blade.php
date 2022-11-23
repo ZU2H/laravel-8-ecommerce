@@ -84,12 +84,14 @@
                                     </fieldset>
 
                                     <fieldset class="wrap-input">
-                                        <label class="remember-field">
-                                            <input class="frm-input " name="remember" id="rememberme" value="forever"
-                                                type="checkbox"><span>Remember me</span>
-                                        </label>
-                                        <a class="link-function left-position" href="{{ route('password.request') }}"
-                                            title="Forgotten password?">Forgotten password?</a>
+                                            <a class="link-function right-position" href="{{ route('register') }}"
+                                                title="Forgotten password?">Don't have account?</a>
+                                            <a class="link-function left-position" href="{{ route('password.request') }}"
+                                                title="Forgotten password?">Forgotten password?</a>
+                                        <div class="form-group mt-5">
+                                            {!! NoCaptcha::renderJs('in', false, 'recaptchaCallback') !!}
+                                            {!! NoCaptcha::display() !!}
+                                        </div>
                                     </fieldset>
                                     <input type="submit" class="btn btn-submit" value="Login" name="submit">
                                 </form>
@@ -108,3 +110,17 @@
     <!--main area-->
 
 </x-base-layout>
+
+<script>
+    document.querySelector("#frm-login-pass").addEventListener('keyup', checkCapsLock);
+    document.querySelector("#frm-login-pass").addEventListener('mousedown', checkCapsLock);
+
+    function onSubmit(token) {
+        document.getElementById("demo-form").submit();
+    }
+
+    function checkCapsLock(e) {
+        if (e.getModifierState('CapsLock'))
+            alert('Caps Lock is turned on');
+    }
+</script>
